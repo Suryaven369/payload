@@ -11,11 +11,14 @@ import { Media } from './collections/Media'
 import { Pages } from './collections/Pages'
 import { Posts } from './collections/Posts'
 import { Users } from './collections/Users'
+import { Services } from './collections/Services'
 import { Footer } from './Footer/config'
 import { Header } from './Header/config'
+import  Work  from './collections/Work'
 import { plugins } from './plugins'
 import { defaultLexical } from '@/fields/defaultLexical'
 import { getServerSideURL } from './utilities/getURL'
+import { Testimonials } from './collections/Testimonials'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -62,8 +65,8 @@ export default buildConfig({
   db: mongooseAdapter({
     url: process.env.DATABASE_URI || '',
   }),
-  collections: [Pages, Posts, Media, Categories, Users],
-  cors: [getServerSideURL()].filter(Boolean),
+  collections: [Pages, Posts, Media, Categories, Users, Work, Services, Testimonials],
+  cors: [  'http://localhost:3000', ],
   globals: [Header, Footer],
   plugins: [
     ...plugins,
@@ -88,5 +91,8 @@ export default buildConfig({
       },
     },
     tasks: [],
+  },
+  graphQL: {
+    schemaOutputFile: path.resolve(__dirname, 'generated-schema.graphql'),
   },
 })
