@@ -14,7 +14,7 @@ import { Users } from './collections/Users'
 import { Services } from './collections/Services'
 import { Footer } from './Footer/config'
 import { Header } from './Header/config'
-import  Work  from './collections/Work'
+import { Works } from './collections/Work/index'
 import { plugins } from './plugins'
 import { defaultLexical } from '@/fields/defaultLexical'
 import { getServerSideURL } from './utilities/getURL'
@@ -65,7 +65,7 @@ export default buildConfig({
   db: mongooseAdapter({
     url: process.env.DATABASE_URI || '',
   }),
-  collections: [Pages, Posts, Media, Categories, Users, Work, Services, Testimonials],
+  collections: [Pages, Posts, Media, Categories, Users, Works, Services, Testimonials],
   cors: [  'http://localhost:3000', ],
   globals: [Header, Footer],
   plugins: [
