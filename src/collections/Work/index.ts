@@ -1,7 +1,7 @@
 import type { CollectionConfig } from 'payload';
 import { lexicalEditor, HeadingFeature, FixedToolbarFeature, InlineToolbarFeature, HorizontalRuleFeature } from '@payloadcms/richtext-lexical';
 import { slugField } from '@/fields/slug';
-import { generatePreviewPath } from '../utilities/generatePreviewPath';
+import { generatePreviewPath } from '../../utilities/generatePreviewPath';
 
 export const Media: CollectionConfig = {
   slug: 'media',
